@@ -1,0 +1,47 @@
+@use '../foundations' as *;
+@use '../objects/utilities/variables' as v;
+
+.l-header {
+  @apply sticky top-0 z-10 grid place-items-center w-full px-5 py-3 bg-stone-800 text-white overflow-hidden;
+  direction: rtl;
+  grid-template-columns: 1fr auto 1fr;
+  min-height: v.$headerHeight;
+  * {
+    direction: ltr;
+  }
+  &__btn {
+    @apply justify-self-start flex place-items-center relative;
+    width: 40px; height: 32px;
+    transition: opacity .2s ease-out;
+    &::before, &::after, span {
+      @apply block w-full bg-white rounded-full;
+      height: 3px;
+    }
+    &::before, &::after {
+      content: "";
+      @apply absolute;
+    }
+    &::before {
+      @apply top-0;
+    }
+    &::after {
+      @apply bottom-0;
+    }
+    @include hover {
+      opacity: .5;
+    }
+  }
+  &__menu {
+    @apply block absolute top-0 right-0 translate-x-full;
+  }
+  &__title {
+    @apply text-center;
+    transition: opacity .2s ease-out;
+    @include hover {
+      opacity: .75;
+    }
+  }
+  & + main {
+    @apply pt-8;
+  }
+}

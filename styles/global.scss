@@ -1,0 +1,11 @@
+@use "sass:meta";
+
+// Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@include meta.load-css('foundations/_base');
+// @include meta.load-css('foundations');
+// @include meta.load-css('layouts');
+// @include meta.load-css('objects');
